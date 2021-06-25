@@ -16,12 +16,9 @@ function loginUser({ email, password }) {
     Promise.all(validations)
       .then(async (values) => {
         if (values.includes(false)) {
-          console.log(values);
           reject("Incorrect user account");
         } else {
-          console.log(values);
           const id = await searchID(email);
-          console.log(id);
           resolve({ token: createToken(id) });
         }
       })

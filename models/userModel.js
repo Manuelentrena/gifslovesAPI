@@ -17,6 +17,7 @@ const registerSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  favs: { type: mongoose.Schema.ObjectId, ref: "gifsLoves_favs" },
   date: {
     type: Date,
     default: Date.now(),
