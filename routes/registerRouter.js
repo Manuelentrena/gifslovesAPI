@@ -8,7 +8,7 @@ register.post("/", async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const response = await controller.addUser({ username, email, password });
-    success({ req, res, data: response, status: 201, msg: "OK" });
+    success({ req, res, data: response, status: 201, msg: "Registered User" });
   } catch (info) {
     error({ req, res, error: "error", status: 500, info });
   }

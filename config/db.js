@@ -8,6 +8,7 @@ export async function connectedBD(URI) {
   await DB.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
     .then(() => console.log(chalk.yellowBright("[DB] successfully connected")))
     .catch((error) => console.error(chalk.redBright("[DB]", error)));

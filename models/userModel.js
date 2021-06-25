@@ -17,11 +17,11 @@ const registerSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  registro: {
+  date: {
     type: Date,
     default: Date.now(),
   },
 });
 
-const registerModel = mongoose.model("gifsLoves_users", registerSchema);
-export default registerModel;
+const userModel = mongoose.model("gifsLoves_users", registerSchema);
+export default userModel;
