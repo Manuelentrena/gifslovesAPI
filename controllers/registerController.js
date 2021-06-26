@@ -4,8 +4,6 @@ import favsData from "../data/favsData.js";
 import emailNotRegister from "../helpers/emailNotRegister.js";
 import createToken from "../helpers/createToken.js";
 
-/* Que email no este ya registrado */
-
 function addUser({ username, email, password }) {
   return new Promise((resolve, reject) => {
     const validations = [];
@@ -33,7 +31,9 @@ function addUser({ username, email, password }) {
           resolve({ token: createToken(newUser._id) });
         }
       })
-      .catch((error) => reject(error));
+      .catch((error) => {
+        reject(error);
+      });
   });
 }
 

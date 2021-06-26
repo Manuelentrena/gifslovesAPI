@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const favsSchema = new mongoose.Schema({
-  /* user: { type: mongoose.Schema.ObjectId, ref: "gifsLoves_users" }, */
   favs: { type: Array },
 });
 
