@@ -9,6 +9,12 @@ export default async function authUser(req, res, next) {
     req.user = user;
     next();
   } else {
-    return error({ req, res, error: "Unregistered User", status: 401, info });
+    return error({
+      req,
+      res,
+      error: "Unregistered User",
+      status: 401,
+      info: "Unregistered User",
+    });
   }
 }

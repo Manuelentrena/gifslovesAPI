@@ -1,4 +1,5 @@
 import validatedNotEmpty from "../helpers/validatedNotEmpty.js";
+import gifNotExist from "../helpers/gifNotExist.js";
 import favsData from "../data/favsData.js";
 
 function addToFavs({ gifId, favId }) {
@@ -6,10 +7,11 @@ function addToFavs({ gifId, favId }) {
     const validations = [];
     /* Verificar segun lo que haya en la base de datos de ghypy (numeros only*) */
     validations.push(validatedNotEmpty(gifId));
+    validations.push(gifNotExist({ gifId, favId }));
     Promise.all(validations)
       .then(async (values) => {
         if (values.includes(false)) {
-          reject("Incorrect Id Gif");
+          reject("Incorrect o Repeat Id Gif");
         } else {
           await favsData.addFav({ gifId, favId });
           resolve([]);

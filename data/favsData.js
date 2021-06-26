@@ -4,7 +4,6 @@ async function newFavs() {
   return new Promise(async (resolve, reject) => {
     /* Construimos el modelo de nuevoUsuario */
     const newFavs = new favsModel({ favs: [] }, { _id: { unique: true } });
-    console.log(newFavs);
     /* Guardamos */
     try {
       const result = await newFavs.save();
