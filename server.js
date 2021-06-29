@@ -2,6 +2,7 @@ import express from "express";
 import http from "http";
 import router from "./connection/routers.js";
 import chalk from "chalk";
+import cors from "cors";
 import { connectedBD, createURI, getPort, getHostname } from "./config/db.js";
 
 /* Crear Servidor */
@@ -10,6 +11,8 @@ const server = http.createServer(app);
 
 /* Conected to DATABASE */
 connectedBD(createURI("variables.env"));
+/* Habilitar CORS */
+app.use(cors());
 /* JSON */
 app.use(express.json());
 /* Router del server */

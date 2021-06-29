@@ -13,8 +13,8 @@ function addToFavs({ gifId, favId }) {
         if (values.includes(false)) {
           reject("Incorrect o Repeat Id Gif");
         } else {
-          await favsData.addFav({ gifId, favId });
-          resolve([]);
+          const { favs } = await favsData.addFav({ gifId, favId });
+          resolve(favs);
         }
       })
       .catch((error) => reject(error));

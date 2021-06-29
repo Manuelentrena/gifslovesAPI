@@ -6,6 +6,7 @@ const login = express.Router();
 
 login.post("/", async (req, res) => {
   const { email, password } = req.body;
+  console.log({ email, password });
   try {
     const response = await controller.loginUser({ email, password });
     success({ req, res, data: response, status: 201, msg: "Logged User" });
