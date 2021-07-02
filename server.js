@@ -18,6 +18,6 @@ app.use(express.json());
 /* Router del server */
 router(app);
 /* Escuchar por el puerto */
-server.listen(getPort(), getHostname(), () => {
+server.listen(getPort(), "0.0.0.0", () => {
   console.log(chalk.yellowBright(`Server is listenning on port ${getPort()}`));
 });
