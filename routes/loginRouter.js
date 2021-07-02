@@ -19,7 +19,6 @@ login.post("/", async (req, res) => {
 
 login.get("/", auth, authUser, async (req, res) => {
   const user = req.user;
-  console.log("DENTRO");
   try {
     success({ req, res, data: user, status: 201, msg: "Username" });
   } catch (info) {
